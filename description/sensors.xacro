@@ -1,0 +1,120 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro">
+
+    <!-- SENSOR LINK -->
+    <joint name="sensor_joint" type="fixed">
+            <parent link="base_link"/>
+            <child link="sensor_link"/>
+            <origin xyz="0.101 0 0.041"/>   
+    </joint>
+
+     <link name="sensor_link">
+
+    </link>
+
+
+    <!-- CENTER SENSOR -->
+    <joint name="center_tof_joint" type="fixed">
+            <parent link="sensor_link"/>
+            <child link="center_tof"/>
+            <origin xyz="0.019 0 0"/>   
+    </joint>
+
+     <link name="center_tof">
+        <visual>
+            <geometry>
+                <box size="0.0016 0.025 0.012"/>
+            </geometry>
+            <material name="orange"/>
+        </visual>
+    </link>
+
+    
+     <!-- CENTER-LEFT SENSOR -->
+     <joint name="center_left_tof_joint" type="fixed">
+            <parent link="sensor_link"/>
+            <child link="center_left_tof"/>
+            <origin xyz="0.01157 0.028  0.0" rpy="0 0 ${pi/6}"/>   
+
+    </joint>
+
+     <link name="center_left_tof">
+        <visual>
+            <geometry>
+                <box size="0.0016 0.025 0.012"/>
+            </geometry>
+            <material name="orange"/>
+        </visual>
+    </link>
+
+     <!-- CENTER-RIGHT SENSOR -->
+     <joint name="center_right_tof_joint" type="fixed">
+            <parent link="sensor_link"/>
+            <child link="center_right_tof"/>
+            <origin xyz="0.01157 -0.028  0.0" rpy="0 0 -${pi/6}"/>   
+
+    </joint>
+
+     <link name="center_right_tof">
+        <visual>
+            <geometry>
+                <box size="0.0016 0.025 0.012"/>
+            </geometry>
+            <material name="orange"/>
+        </visual>
+    </link>
+
+    <!-- LEFT SENSOR -->
+     <joint name="left_tof_joint" type="fixed">
+            <parent link="sensor_link"/>
+            <child link="left_tof"/>
+            <origin xyz="-0.00892 0.048  0.0" rpy="0 0 ${pi/3}"/>   
+
+    </joint>
+
+     <link name="left_tof">
+        <visual>
+            <geometry>
+                <box size="0.0016 0.025 0.012"/>
+            </geometry>
+            <material name="orange"/>
+        </visual>
+    </link>
+
+    <!-- RIGHT SENSOR -->
+    <joint name="right_tof_joint" type="fixed">
+            <parent link="sensor_link"/>
+            <child link="right_tof"/>
+            <origin xyz="-0.00892 -0.048  0.0" rpy="0 0 -${pi/3}"/>   
+
+    </joint>
+
+     <link name="right_tof">
+        <visual>
+            <geometry>
+                <box size="0.0016 0.025 0.012"/>
+            </geometry>
+            <material name="orange"/>
+        </visual>
+    </link>
+
+
+    <!-- REALSENSE_CAMERA -->
+    <joint name="camera_joint" type="fixed">
+            <parent link="sensor_link"/>
+            <child link="camera_link"/>
+            <origin xyz="0.00591 0 0.02450" />   
+
+    </joint>
+
+
+     <link name="camera_link">
+        <visual>
+            <geometry>
+                <box size="0.023 0.099 0.020"/>
+            </geometry>
+            <material name="blue"/>
+        </visual>
+    </link>
+
+</robot>
